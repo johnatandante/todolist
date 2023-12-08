@@ -1,9 +1,9 @@
 <?php
-require_once('model/user.php');
-require_once('utils/session.php');
-require_once('utils/utility.php');
+require_once('./model/user.php');
+require_once('./utils/session.php');
+require_once('./utils/utility.php');
 
-$_SESSION["servername"] = "localhost";
+$_SESSION["servername"] = "127.0.0.1";
 $_SESSION["username"] = "usertodolist";
 $_SESSION["password"] = "BDYtBuyF5QWGT9tY";
 $_SESSION["db"] = "todolist";

@@ -1,0 +1,56 @@
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  display: flex;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 10px 25px 10px 25px;
+  text-decoration: none;
+  font-size: 17px;
+  display: grid;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+    display: flex;
+    padding: 15px 15px 10px 15px;
+    margin: 10px 
+
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  color: #aaa;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Style the header */
+.banner {
+  display: flex;
+  background-color: #f44336;
+  padding: 5px 5px 5px 5px;
+  color: white;
+  width: 100%;
+}
+
+img.logo {
+
+  width: 3em;
+  height: 3em;
+
+}

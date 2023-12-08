@@ -1,6 +1,7 @@
 <?php
 
-require_once('utils/session.php');
+// require_once('./utils/session.php');
+require_once('./business/login.php');
 
 ?>
 <html>
@@ -13,10 +14,10 @@ require_once('utils/session.php');
     <body>
         <?php
         if (!isset($_SESSION["user"])) {
-            require_once('login.php');
+            require_once('./view/login.php');
         } 
         if (isset($_SESSION["user"])) {
-            require_once('main.php');
+            require_once('./view/main.php');
         }
         ?>
     </body>

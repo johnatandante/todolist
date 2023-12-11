@@ -1,9 +1,18 @@
 <?php
 
-require_once('./model/user.php');
-require_once('./utils/session.php');
+namespace view;
 
-$user = $_SESSION['user'];
+require_once('./model/user.php');
+
+use model\User;
+use business\Login;
+use business\Database;
+
+$database = new Database();
+$login = new Login($database);
+$login->check_login();
+
+$user = $login->get_user_info();
 
 ?>
 <!-- Load an icon library to show a hamburger menu (bars) on small screens -->
@@ -13,26 +22,26 @@ $user = $_SESSION['user'];
 
 <!-- Top Navigation Menu -->
 <div class="topnav">
-    <div class="banner">
+  <div class="banner">
     <div class="logo">
-        <a href="#home" class="menu"><img class="logo" src="resources/imgs/logo.png" /></a>
+      <a href="#home" class="menu"><img class="logo" src="resources/imgs/logo.png" /></a>
     </div>
     <?php
-        echo '<div class="userLoggeg"> Benvenuto <span class bold> ' . $user->fullname . 
-            '</span> (' . $user->username . ')';
-        echo '</div>';
+      if($user != null ) {
+        echo '<div class="userLoggeg"> Benvenuto <span class bold> ' . $user->fullname .
+            '</span> (' . $user->username . ')</div>';
+      }
     ?>
-    </div>
+  </div>
 
   <!-- Navigation links (hidden by default) -->
   <div id="myLinks">
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
-  </div
-  >
+  </div>
   <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+  <a href="javascript:void(0);" class="icon" onclick="alert('this do nothing')">
     <i class="fa fa-bars"></i>
   </a>
 </div>

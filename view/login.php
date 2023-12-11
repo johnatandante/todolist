@@ -1,4 +1,7 @@
 <?php
+namespace view;
+
+require_once('./utils/utility.php');
 
 ?>
 <div id="myDIV" class="header">

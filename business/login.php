@@ -1,14 +1,33 @@
 <?php
 
-require_once('./model/user.php');
-require_once('./utils/session.php');
-require_once('./business/database.php');
+namespace business;
 
-// handling POST variables
+// use model\User;
+// use utils;
 
-if(!isset( $_SESSION['user']) && isset($_POST["username"]) && isset($_POST["password"])){
-    echo "checking user";
-    $_SESSION['user'] = get_user_info($_POST["username"], $_POST["password"]);
+class Login
+{
+    // handling POST variables
+
+    private $database;
+
+    function __construct($database) { 
+        $this->database = $database;
+    }
+
+    public function get_user_info() {
+        if(isset($_SESSION['user']))
+            return $_SESSION['user'];
+        else 
+            return null;
+    }
+
+    public function check_login()
+    {
+        if (!isset($_SESSION['user']) && isset($_POST["username"]) && isset($_POST["password"])) {
+            $_SESSION['user'] = $this->database->get_user_info($_POST["username"], $_POST["password"]);
+        }
+    }
 }
 
 ?>

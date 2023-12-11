@@ -1,7 +1,20 @@
 <?php
+namespace index;
 
-// require_once('./utils/session.php');
+use utils;
+use business\Database;
+use business\Login;
+
+require_once('./utils/utility.php');
+require_once('./utils/session.php');
+require_once('./business/database.php');
 require_once('./business/login.php');
+
+$database = new Database();
+$login = new Login($database);
+$login->check_login();
+
+$user = $login->get_user_info();
 
 ?>
 <html>
@@ -13,10 +26,10 @@ require_once('./business/login.php');
 
     <body>
         <?php
-        if (!isset($_SESSION["user"])) {
+        if ($user == null) {
             require_once('./view/login.php');
         } 
-        if (isset($_SESSION["user"])) {
+        if ($user != null) {
             require_once('./view/main.php');
         }
         ?>

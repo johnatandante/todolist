@@ -1,4 +1,7 @@
 <?php
+
+namespace model;
+
 class User
 {
     public $id;
@@ -12,7 +15,7 @@ class User
         $this->fullname = $fullname;
         $this->is_admin = $is_admin;
     }
-    
+
 }
 
 ?>

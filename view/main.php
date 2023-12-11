@@ -1,12 +1,8 @@
 <?php
 
-require_once('./model/user.php');
-require_once('./utils/session.php');
-require_once('./business/database.php');
+namespace view;
 
-if (isset($_SESSION['user'])) {
-    require_once('./view/menu.php');
-}    
+require_once('./view/menu.php');
 
 ?>
 <div id="myDIV" class="header">

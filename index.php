@@ -1,14 +1,15 @@
 <?php
 namespace index;
 
-use utils;
-use business\Database;
-use business\Login;
-
+require_once('./model/user.php');
 require_once('./utils/utility.php');
 require_once('./utils/session.php');
 require_once('./business/database.php');
 require_once('./business/login.php');
+
+use utils;
+use business\Database;
+use business\Login;
 
 $database = new Database();
 $login = new Login($database);

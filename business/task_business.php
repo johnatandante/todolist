@@ -2,7 +2,10 @@
 
 namespace business;
 
-// use model\User;
+require_once('./model/user.php');
+require_once('./model/attivita.php');
+
+use model\User;
 use model\Attivita;
 // use business\Database;
 
@@ -23,14 +26,14 @@ class TaskBusiness {
 
         $activities = array();
         $row = null;
-        foreach($row as $rows) {
+        foreach($rows as $row) {
             $attivita = new Attivita();
             $attivita->id = $row["id"];
-            $attivita->id_user = $row["id_user"];
+            $attivita->id_user = $row["id_utente"];
             $attivita->titolo = $row["titolo"];
             $attivita->descrizione = $row["descrizione"];
             $attivita->completata = $row["completata"];
-            array_push($rows, $attivita);
+            array_push($activities, $attivita);
         }
 
         return $activities;

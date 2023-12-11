@@ -2,14 +2,15 @@
 
 namespace business;
 
+// require_once('./utils/utility.php');
+require_once('./model/user.php');
+require_once('./model/attivita.php');
+
 use mysqli;
 use utils\Utility;
 
-// require_once('./utils/utility.php');
-require_once('model/user.php');
-
 use model\User;
-// use model\Attivita;
+use model\Attivita;
 
 class Database
 {
@@ -79,26 +80,25 @@ class Database
 
     public function set_task_completed($id)
     {
-         // Create connection
-         $conn = $this->create_connection();
-         // $user = $_SESSION['user'];
+        // Create connection
+        $conn = $this->create_connection();
+        // $user = $_SESSION['user'];
 
-         $sql = "update attivita set completata = 1 where id = " . $id;
-         $result = $conn->query($sql);
+        $sql = "update attivita set completata = 1 where id = " . $id;
+        $result = $conn->query($sql);
 
-         $row_affected = $result->num_rows;
-         $conn->close();
+        $row_affected = $result->num_rows;
+        $conn->close();
 
-         return $row_affected;
+        return $row_affected;
     }
-
 
     public function fetch_tasks($user, $completed = 0)
     {
         // Create connection
         $conn = $this->create_connection();
 
-        $sql = "select * from attivita where completata = ".$completed." and id_utente  = " . $user->id;
+        $sql = "select * from attivita where id_utente  = '" . $user->id . "'";
         $result = $conn->query($sql);
 
         $rows = array();

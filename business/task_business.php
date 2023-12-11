@@ -2,10 +2,7 @@
 
 namespace business;
 
-// require_once('./model/user.php');
-// require_once('./model/attivita.php');
-
-use model\User;
+// use model\User;
 use model\Attivita;
 // use business\Database;
 

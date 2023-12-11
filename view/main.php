@@ -2,7 +2,6 @@
 
 namespace view;
 
-require_once('./model/user.php');
 require_once('./view/menu.php');
 require_once('./business/task_business.php');
 

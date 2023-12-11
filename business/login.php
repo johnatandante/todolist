@@ -2,8 +2,6 @@
 
 namespace business;
 
-require_once('./model/user.php');
-
 // use model\User;
 // use utils;
 

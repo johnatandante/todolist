@@ -2,10 +2,6 @@
 
 namespace view;
 
-require_once('./model/user.php');
-require_once('./business/login.php');
-require_once('./business/database.php');
-
 use model\User;
 use business\Login;
 use business\Database;

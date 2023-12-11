@@ -2,10 +2,6 @@
 
 namespace business;
 
-// require_once('./utils/utility.php');
-// require_once('./model/user.php');
-// require_once('./model/attivita.php');
-
 use mysqli;
 use utils\Utility;
 

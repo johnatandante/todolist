@@ -2,8 +2,8 @@
 
 namespace business;
 
-require_once('./model/user.php');
-require_once('./model/attivita.php');
+// require_once('./model/user.php');
+// require_once('./model/attivita.php');
 
 use model\User;
 use model\Attivita;
@@ -16,6 +16,15 @@ class TaskBusiness {
     function __construct($database){
 
         $this->database = $database;
+
+    }
+
+    function handle($post_array) {
+
+        if(isset($post_array['task'])){
+            $this->database->add_task($post_array['task']);
+
+        }
 
     }
 
@@ -38,6 +47,10 @@ class TaskBusiness {
 
         return $activities;
 
+    }
+
+    function set_task_completed($id_task) {
+        return $this->database->set_task_completed($id_task);
     }
 
 }

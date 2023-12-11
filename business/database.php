@@ -3,8 +3,8 @@
 namespace business;
 
 // require_once('./utils/utility.php');
-require_once('./model/user.php');
-require_once('./model/attivita.php');
+// require_once('./model/user.php');
+// require_once('./model/attivita.php');
 
 use mysqli;
 use utils\Utility;
@@ -72,10 +72,9 @@ class Database
         $sql = "INSERT INTO attivita(id_utente, titolo) VALUES (" . $user->id . ",'" . $titolo . "')";
         $result = $conn->query($sql);
 
-        $row_affected = $result->num_rows;
         $conn->close();
 
-        return $row_affected;
+        return 1;
     }
 
     public function set_task_completed($id)
@@ -87,10 +86,9 @@ class Database
         $sql = "update attivita set completata = 1 where id = " . $id;
         $result = $conn->query($sql);
 
-        $row_affected = $result->num_rows;
         $conn->close();
 
-        return $row_affected;
+        return 1;
     }
 
     public function fetch_tasks($user, $completed = 0)
@@ -98,7 +96,7 @@ class Database
         // Create connection
         $conn = $this->create_connection();
 
-        $sql = "select * from attivita where id_utente  = '" . $user->id . "'";
+        $sql = "select * from attivita where completata = " . $completed . " and id_utente  = '" . $user->id . "'";
         $result = $conn->query($sql);
 
         $rows = array();

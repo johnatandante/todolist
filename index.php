@@ -2,6 +2,7 @@
 namespace index;
 
 require_once('./model/user.php');
+require_once('./model/attivita.php');
 require_once('./utils/utility.php');
 require_once('./utils/session.php');
 require_once('./business/database.php');

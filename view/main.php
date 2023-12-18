@@ -17,7 +17,7 @@ $business->handle($_POST);
 ?>
 
 <div id="myDIV" class="header">
-    <h2>My To Do List</h2>
+    <h2>My ToDoList.net</h2>
 </div>
 
 <div class="main">
